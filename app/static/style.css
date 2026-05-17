@@ -1,0 +1,64 @@
+:root {
+    --bg-dark: #0f172a;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-dark);
+    color: white;
+    overflow-x: hidden;
+}
+
+.glass-bg {
+    position: fixed;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: #f39c12;
+    filter: blur(150px);
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.fw-800 { font-weight: 800; }
+
+.navbar {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+}
+
+.hero-text h1 {
+    line-height: 1.1;
+}
+
+.result-box {
+    background: rgba(243, 156, 18, 0.1);
+    border: 1px dashed #f39c12;
+}
+
+.form-control:focus {
+    background: transparent;
+    color: white;
+    box-shadow: none;
+    border-color: #f39c12;
+}
+
+.progress {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-warning {
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(243, 156, 18, 0.2);
+}
