@@ -1,11 +1,12 @@
 import sys
 import numpy as np
-sys.modules['numpy._core'] = numpy
+
+# Pendaftaran modul palsu untuk NumPy lama
+sys.modules['numpy._core'] = np
 
 import os
 from flask import Flask, render_template, request
 import joblib
-import numpy as np
 import tensorflow as tf
 
 app = Flask(__name__)
