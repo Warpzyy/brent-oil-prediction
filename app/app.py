@@ -1,16 +1,24 @@
 import sys
 import numpy as np
 
-# Pendaftaran modul palsu untuk NumPy lama
-sys.modules['numpy._core'] = np
+# --- JEMBATAN SAKTI MULTI-LEVEL UNTUK NUMPY 2.0 -> 1.x ---
+import types
+numpy_core = types.ModuleType('numpy._core')
+numpy_core_multiarray = types.ModuleType('numpy._core.multiarray')
 
+# Petakan sub-modul internalnya
+numpy_core_multiarray.scalar = np.scalar if hasattr(np, 'scalar') else None
+sys.modules['numpy._core'] = numpy_core
+sys.modules['numpy._core.multiarray'] = np  # Langsung arahkan multiarray ke core utama
+
+# Sekarang jalankan import bawaan lainnya
 import os
 from flask import Flask, render_template, request
 import joblib
 import tensorflow as tf
 
 app = Flask(__name__)
-
+# ... sisa kode ke bawahnya sama ...
 # Setup Path
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
