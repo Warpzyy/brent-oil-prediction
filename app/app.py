@@ -1,5 +1,7 @@
 import sys
 import numpy as np
+sys.modules['numpy._core'] = numpy
+
 import os
 from flask import Flask, render_template, request
 import joblib
